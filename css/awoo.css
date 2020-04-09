@@ -1,0 +1,48 @@
+body {
+    background: var(--gray-dark);
+}
+div.container {
+    background: var(--gray-dark);
+}
+div.container h1 {
+    text-align: center;
+    color: var(--white);
+    margin-top: 3rem;
+}
+div.container div.awoo-poll {
+    padding: 2rem;
+    background: rgba(0,0,0,0.2);
+    border-radius: 1rem;
+    margin-top: 3rem;
+}
+div.container div.awoo-poll p {
+    color: var(--white);
+    font-weight: 500;
+    margin: 0 0 8px;
+}
+div.container div.awoo-poll h2 {
+    text-align: center;
+    margin-top: 2rem;
+    color: var(--white);
+}
+div.container div.awoo-poll h2 img {
+    height: 2rem;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: all 0.18s;
+}
+div.container div.awoo-poll h2 img:hover {
+    transform: scale(1.3);
+}
+div.container div.awoo-poll span#total {
+    color: var(--blue);
+    cursor: pointer;
+}
+div.container div.awoo-poll span#total:hover {
+    color: #2a75c6;
+}
+div.container div.awoo-poll div.progress {
+    margin-bottom: 10px;
+    height: 2rem !important;
+    background: #212529;
+}
