@@ -18,33 +18,33 @@ function update() {
 
         const tokii = $("#tokiVotes");
         tokii.text(toki + correctS(toki));
-        tokii.attr("style", "width:" + ((toki / total) * 100) + "%");
-        tokii.attr("aria-valuenow", "30");
+        tokii.attr("style", "width:" + tokiPercent + "%");
+        tokii.attr("aria-valuenow", tokiPercent);
 
         const rinn = $("#rinVotes");
         rinn.text(rin + correctS(rin));
-        rinn.attr("style", "width:" + ((rin / total) * 100) + "%");
-        rinn.attr("aria-valuenow", "30");
+        rinn.attr("style", "width:" + rinPercent + "%");
+        rinn.attr("aria-valuenow", rinPercent);
 
         const vockk = $("#vockVotes");
         vockk.text(vock + correctS(vock));
-        vockk.attr("style", "width:" + ((vock / total) * 100) + "%");
-        vockk.attr("aria-valuenow", "30");
+        vockk.attr("style", "width:" + vockPercent + "%");
+        vockk.attr("aria-valuenow", vockPercent);
 
         const spaghetto = $("#spaghettVotes");
         spaghetto.text(spaghett + correctS(spaghett));
-        spaghetto.attr("style", "width:" + ((spaghett / total) * 100) + "%");
-        spaghetto.attr("aria-valuenow", "30");
+        spaghetto.attr("style", "width:" + spaghettPercent + "%");
+        spaghetto.attr("aria-valuenow", spaghettPercent);
 
         const muffinn = $("#muffinVotes");
         muffinn.text(muffin + correctS(muffin));
-        muffinn.attr("style", "width:" + ((muffin / total) * 100) + "%");
-        muffinn.attr("aria-valuenow", "30");
+        muffinn.attr("style", "width:" + muffinPercent + "%");
+        muffinn.attr("aria-valuenow",  muffinPercent);
 
         const vottusz = $("#vottusVotes");
         vottusz.text(vottus + correctS(vottus));
-        vottusz.attr("style", "width:" + ((vottus / total) * 100) + "%");
-        vottusz.attr("aria-valuenow", "30");
+        vottusz.attr("style", "width:" + vottusPercent + "%");
+        vottusz.attr("aria-valuenow", vottusPercent);
 
         $("#total").text(total);
         setTimeout(update, 10000);
