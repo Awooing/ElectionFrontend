@@ -1,53 +1,36 @@
 function update() {
-    $.getJSON("http://localhost:8001/api/votes", function (data) {
+    $.getJSON("https://api.awooing.moe/votes", function (data) {
+
+        const total =
+              parseInt(data.tokiVotes)
+            + parseInt(data.rinVotes)
+            + parseInt(data.vockVotes)
+            + parseInt(data.spaghettVotes)
+            + parseInt(data.muffinVotes)
+            + parseInt(data.vottusVotes);
+
+        // Tokichii
         const toki = parseInt(data.tokiVotes);
-        const rin = parseInt(data.rinVotes);
+        setVote($("#tokiVotes"), $("#tokiVotesTotal"), ((toki / total) * 100), toki, "Tokichii");
+        // Rin
+        const rin = parseInt(data.rinVotes)
+        setVote($("#rinVotes"), $("#rinVotesTotal"), ((rin / total) * 100), rin, "Rin");
+        // Vocktile
         const vock = parseInt(data.vockVotes);
-        const spaghett = parseInt(data.spaghettVotes);
+        setVote($("#vockVotes"), $("#vockVotesTotal"), ((vock / total) * 100), vock, "Vocktile");
+        // SpaghettO
+        const spaghettO = parseInt(data.spaghettVotes);
+        setVote($("#spaghettVotes"), $("#spaghettVotesTotal"), ((spaghettO / total) * 100), spaghettO, "Spaghett");
+        // Muffin
         const muffin = parseInt(data.muffinVotes);
+        setVote($("#muffinVotes"), $("#muffinVotesTotal"), ((muffin / total) * 100), muffin, "Muffin");
+        // Vottus
         const vottus = parseInt(data.vottusVotes);
-        const total = toki+rin+vock+spaghett+muffin+vottus;
-
-        const tokiPercent = ((toki / total) * 100);
-        const rinPercent = ((toki / total) * 100);
-        const vockPercent = ((toki / total) * 100);
-        const spaghettPercent = ((toki / total) * 100);
-        const muffinPercent = ((toki / total) * 100);
-        const vottusPercent = ((toki / total) * 100);
-        const totalPercent = tokiPercent+rinPercent+vockPercent+spaghettPercent+muffinPercent+vottusPercent;
-
-        const tokii = $("#tokiVotes");
-        tokii.text(toki + correctS(toki));
-        tokii.attr("style", "width:" + tokiPercent + "%");
-        tokii.attr("aria-valuenow", tokiPercent);
-
-        const rinn = $("#rinVotes");
-        rinn.text(rin + correctS(rin));
-        rinn.attr("style", "width:" + rinPercent + "%");
-        rinn.attr("aria-valuenow", rinPercent);
-
-        const vockk = $("#vockVotes");
-        vockk.text(vock + correctS(vock));
-        vockk.attr("style", "width:" + vockPercent + "%");
-        vockk.attr("aria-valuenow", vockPercent);
-
-        const spaghetto = $("#spaghettVotes");
-        spaghetto.text(spaghett + correctS(spaghett));
-        spaghetto.attr("style", "width:" + spaghettPercent + "%");
-        spaghetto.attr("aria-valuenow", spaghettPercent);
-
-        const muffinn = $("#muffinVotes");
-        muffinn.text(muffin + correctS(muffin));
-        muffinn.attr("style", "width:" + muffinPercent + "%");
-        muffinn.attr("aria-valuenow",  muffinPercent);
-
-        const vottusz = $("#vottusVotes");
-        vottusz.text(vottus + correctS(vottus));
-        vottusz.attr("style", "width:" + vottusPercent + "%");
-        vottusz.attr("aria-valuenow", vottusPercent);
-
+        setVote($("#vottusVotes"), $("#vottusVotesTotal"), ((vottus / total) * 100), vottus, "Vottus");
+        // Total
         $("#total").text(total);
-        setTimeout(update, 10000);
+
+        setTimeout(update, 40000);
     });
 }
 
@@ -57,6 +40,15 @@ function correctS(count) {
     } else {
         return " Votes";
     }
+}
+
+function setVote(bar, total, percent, votes, name) {
+    bar.attr("style", "width:" + percent + "%");
+    bar.attr("aria-valuenow", percent);
+    bar.text( votes + correctS(votes));
+    total.attr("style", "width:" + percent + "%");
+    total.attr("aria-valuenow", percent);
+    total.text(name + " (" + votes + correctS(votes) + ")");
 }
 
 update();
